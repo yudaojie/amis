@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>我有付鹏程，你有甘鹏辉吗？</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" href="./amis6.10.0sdk/sdk.css" />
+    <link rel="stylesheet" href="./amis6.10.0sdk/helper.css" />
+    <link rel="stylesheet" href="./amis6.10.0sdk/iconfont.css" />
+    <!-- 这是默认主题所需的，如果是其他主题则不需要 -->
+    <!-- 从 1.1.0 开始 sdk.css 将不支持 IE 11，如果要支持 IE11 请引用这个 css，并把前面那个删了 -->
+    <!-- <link rel="stylesheet" href="sdk-ie11.css" /> -->
+    <!-- 不过 amis 开发团队几乎没测试过 IE 11 下的效果，所以可能有细节功能用不了，如果发现请报 issue -->
+    <style>
+      html,
+      body,
+      .app-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="app-wrapper"></div>
+
+    <script src="./axios.min.js"></script>
+    <script src="./index.js"></script>
+    <script src="./amis6.10.0sdk/sdk.js"></script>
+    <script type="text/javascript">
+      (function () {
+        let amis = amisRequire("amis/embed");
+        // 通过替换下面这个配置来生成不同页面111122222333
+        let amisJSON = {
+          type: "page",
+          title: "",
+          body: [
+            {
+              type: "crud",
+              syncLocation: false,
+              api: {
+                method: "get",
+                url: "http://localhost:5000/page",
+                messages: {},
+                requestAdaptor: "",
+                adaptor: "",
+                dataType: "json",
+              },
+              bulkActions: [],
+              itemActions: [],
+              columns: [
+                {
+                  name: "id",
+                  label: "ID",
+                  type: "text",
+                  id: "u:eac3241e04f4",
+                  placeholder: "-",
+                },
+                {
+                  name: "name",
+                  label: "渲染引擎",
+                  type: "text",
+                  id: "u:2af4ca5d5add",
+                  placeholder: "-",
+                },
+              ],
+              id: "u:f84402836037",
+              perPageAvailable: [5, 10, 20, 50, 100],
+              messages: {},
+              filter: {
+                title: "查询条件",
+                body: [
+                  {
+                    type: "input-text",
+                    name: "keywords",
+                    label: "关键字",
+                    id: "u:cee4ac860feb",
+                  },
+                ],
+                id: "u:2743b05700f0",
+                actions: [
+                  {
+                    type: "submit",
+                    label: "搜索",
+                    primary: true,
+                    id: "u:48e71a647375",
+                  },
+                ],
+                feat: "Insert",
+                labelAlign: "left",
+                rules: [{}],
+              },
+            },
+            {
+              type: "form",
+              actions: [
+                {
+                  label: "新增",
+                  type: "button",
+                  actionType: "ajax",
+                  confirmText: "确认要发出这个请求？",
+                  confirmTitle: "新增",
+                  api: "http://localhost:5000/post/save",
+                },
+                {
+                  label: "修改",
+                  type: "button",
+                  actionType: "ajax",
+                  confirmText: "确认要发出这个请求？",
+                  confirmTitle: "修改",
+                  api: "http://localhost:5000/post/save",
+                },
+              ],
+
+              body: [
+                {
+                  type: "input-text",
+                  name: "name",
+                  label: "姓名：",
+                },
+                {
+                  name: "email",
+                  type: "input-email",
+                  label: "邮箱：",
+                },
+              ],
+            },
+          ],
+        };
+        let amisScoped = amis.embed(
+          "#root",
+          amisJSON,
+          {}, //这个空对象可以放固定数据如 data:{imgIp:""}
+          {
+            fetcher: function (config) {
+              let result = axios_http(config);
+              return result;
+            },
+          }
+        );
+      })();
+    </script>
+  </body>
+</html>

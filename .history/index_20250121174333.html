@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMIS 示例</title>
+    <!-- 引入 AMIS 库 -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/amis/lib/themes/default.css"
+    />
+    <script src="https://unpkg.com/amis/lib/index.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function () {
+        var amisJSON = {
+          type: "page",
+          body: [
+            {
+              type: "card",
+              href: "https://github.com/baidu/amis",
+              header: {
+                title: "",
+                avatarText: "mac",
+              },
+              body: "Shadowrocket是一个用于macOS系统的收费代理软件，可以在非中国以外的Apple ID购买和下载（美国区售价为2.99美金）",
+            },
+          ],
+        };
+
+        amis.embed("#root", amisJSON);
+      })();
+    </script>
+  </body>
+</html>
