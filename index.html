@@ -134,14 +134,13 @@
             },
           ],
         };
-        let amisScoped = amis.embed(
+       amis.embed(
           "#root",
           amisJSON,
           {}, //这个空对象可以放固定数据如 data:{imgIp:""}
           {
             fetcher: function (config) {
-              let result = axios_http(config);
-              return result;
+              return axios_http(config);
             },
           }
         );
