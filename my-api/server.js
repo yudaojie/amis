@@ -9,7 +9,7 @@ app.use(express.json()); // 解析 application/json 格式的请求体
 app.use(express.urlencoded({ extended: true })); // 解析 application/x-www-form-urlencoded 格式的请求体
 
 app.all("*", function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5500"); // 允许 'http://127.0.0.1:5500' 地址来访问服务器
+  res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5500"); // 允许 'http://127.0.0.1:5500' 地址来访问服务器
   res.header("Access-Control-Allow-Methods", "GET,POST"); // 允许的请求方法
   res.header("Access-Control-Allow-Headers", "Content-Type"); // 允许的请求头
   res.header("Access-Control-Allow-Credentials", "true"); // 允许携带凭据（如 cookies

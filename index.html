@@ -2,7 +2,7 @@
 <html lang="zh">
   <head>
     <meta charset="UTF-8" />
-    <title>我吗？</title>
+    <title>我有付鹏程，你有甘鹏辉吗？</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta
       name="viewport"
@@ -42,6 +42,12 @@
           type: "page",
           title: "",
           body: [
+            {
+              type: "button",
+              label: "执行脚本",
+              id: "u:3012a12b96ba",
+              onClick: "ds();",
+            },
             {
               type: "crud",
               syncLocation: false,
@@ -134,13 +140,14 @@
             },
           ],
         };
-       amis.embed(
+        let amisScoped = amis.embed(
           "#root",
           amisJSON,
           {}, //这个空对象可以放固定数据如 data:{imgIp:""}
           {
             fetcher: function (config) {
-              return axios_http(config);
+              let result = axios_http2(config);
+              return result;
             },
           }
         );
