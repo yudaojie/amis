@@ -1,367 +1,441 @@
 <!DOCTYPE html>
 <html lang="zh">
-  <head>
-    <meta charset="UTF-8" />
-    <title>自定义amis</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
-    <link rel="stylesheet" href="./amis6.10.0sdk/sdk.css" />
-    <link rel="stylesheet" href="./amis6.10.0sdk/helper.css" />
-    <link rel="stylesheet" href="./amis6.10.0sdk/iconfont.css" />
-    <!-- 这是默认主题所需的，如果是其他主题则不需要 -->
-    <!-- 从 1.1.0 开始 sdk.css 将不支持 IE 11，如果要支持 IE11 请引用这个 css，并把前面那个删了 -->
-    <!-- <link rel="stylesheet" href="sdk-ie11.css" /> -->
-    <!-- 不过 amis 开发团队几乎11没测试过 IE 11 下的效果，所以可能有细节功能用不了，如果发现请报 issue -->
-    <style>
+<head>
+  <meta charset="UTF-8" />
+  <title>崇仁中西医结合医院</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/amis/sdk/sdk.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/amis/sdk/helper.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/amis/sdk/iconfont.css"
+  />
+  <!-- 这是默认主题所需的，如果是其他主题则不需要 -->
+  <!-- 从 1.1.0 开始 sdk.css 将不支持 IE 11，如果要支持 IE11 请引用这个 css，并把前面那个删了 -->
+  <!-- <link rel="stylesheet" href="sdk-ie11.css" /> -->
+  <!-- 不过 amis 开发团队几乎没测试过 IE 11 下的效果，所以可能有细节功能用不了，如果发现请报 issue -->
+  <style>
       html,
       body,
       .app-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
       }
-    </style>
-  </head>
-  <body>
-    <div id="root" class="app-wrapper"></div>
-
-    <script src="./axios.min.js"></script>
-    <script src="./index.js"></script>
-    <script src="./amis6.10.0sdk/sdk.js"></script>
-
-    <script type="text/javascript">
-      (function () {
-        let amis = amisRequire("amis/embed");
-        // 通过替换下面这个配置来生成不同页面111122222333444
-        let amisJSON = {
-          "type": "page",
-          "title": "Hello world",
+  </style>
+</head>
+<body>
+<div id="root" class="app-wrapper"></div>
+<script src="https://cdn.jsdelivr.net/npm/amis/sdk/sdk.js"></script>
+<script type="text/javascript">
+  (function () {
+    let amis = amisRequire("amis/embed");
+    // 通过替换下面这个配置来生成不同页面111122222333444
+    let amisJSON = {
+      "type": "page",
+      "title": "Hello world",
+      "body": [
+        {
+          "type": "card",
+          "header": {
+            "title": "崇仁县中西医结合医院",
+            "subTitle": {
+              "type": "tpl",
+              "tpl": "<span class='px-2 py-0.5 rounded shadow-inner bg-white text-teal-600 text-xs font-bold'>医保</span> <span class='px-2 py-0.5 rounded shadow-inner bg-white text-teal-600 text-xs font-bold'>崇仁县卫健委批准成立</span>",
+              "id": "u:2cff963ce5c1"
+            },
+            "description": "<br/><b>崇仁中西医结合医院是崇仁县医保、工伤保险定点医疗机构</b>",
+            "avatarClassName": "pull-left thumb-md avatar b-3x m-r",
+            "desc": "",
+            "avatar": "./yiyuan.jpg"
+          },
           "body": [
             {
-              "type": "card",
-              "header": {
-                "title": "崇仁县中西医结合医院",
-                "subTitle": {
-                  "type": "tpl",
-                  "tpl": "<span class='px-2 py-0.5 rounded shadow-inner bg-white text-teal-600 text-xs font-bold'>医保</span> <span class='px-2 py-0.5 rounded shadow-inner bg-white text-teal-600 text-xs font-bold'>崇仁县卫健委批准成立</span>",
-                  "id": "u:2cff963ce5c1"
-                },
-                "description": "<br/><b>崇仁中西医结合医院是崇仁县医保、工伤保险定点医疗机构</b>",
-                "avatarClassName": "pull-left thumb-md avatar b-3x m-r",
-                "desc": "",
-                "avatarText": "图片"
-              },
-              "body": [
-                {
-                  "type": "tpl",
-                  "tpl": "门诊： 8: 00-12: 00",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:89f31c705923"
-                },
-                {
-                  "type": "tpl",
-                  "tpl": "地址：崇仁县巴山镇人民大道（原四中）",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:89f31c705923"
-                },
-                {
-                  "type": "tpl",
-                  "tpl": "咨询：13755969395 周院长",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:89f31c705923"
-                }
-              ],
-              "toolbar": [],
-              "id": "u:8d62cd7ff5cd"
-            },
-            {
-              "type": "grid-nav",
-              "source": "${items}",
-              "border": false,
-              "id": "u:3daaee2b93a2"
+              "type": "tpl",
+              "tpl": "门诊： 8: 00-12: 00",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:89f31c705923"
             },
             {
               "type": "tpl",
-              "id": "u:19a17dee7aa4",
-              "tpl": "<p><strong>◎ 简介&nbsp;</strong><br>为响应国家推动医养结合高质量发展的号召，更好的满足院内患者的就医需求。崇仁县中西医结合医院是经崇仁县卫健委批准，在崇仁县县卫健委备案。 崇仁中西医结合医院是一家以中西医结合为核心特色的一级综合医院，致力于为患者提供高效、便捷、温馨的医疗服务。我们秉持&ldquo;患者至上，医术精湛&rdquo;的理念，将传统中医的智慧与现代医学技术相结合，打造区域内独具特色的健康管理中心。这里不仅有先进的诊疗设备和专业团队，还有贴心的服务和便捷的就医体验，真正让每一位患者感受到关怀与尊重。我院特别引进先进的康复理念，结合国内专业的康复技术及设备，打通&ldquo;医、康、养、护&rdquo;四个领域，院内开设骨科、中西医结合科、中医科、康复治疗科、肛肠专科、医学检验科、医学影像科等医技科室</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>"
+              "tpl": "地址：崇仁县巴山镇人民大道（原四中）",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:89f31c705923"
             },
             {
               "type": "tpl",
-              "id": "u:3173b85c721d",
-              "tpl": "<span style='font-size:25px'>科室列表</span>"
-            },
-            {
-              "type": "card",
-              "href": "https://github.com/baidu/amis",
-              "header": {
-                "title": "",
-                "subTitle": "",
-                "description": "",
-                "avatarText": "骨科"
-              },
-              "body": [
-                {
-                  "type": "tpl",
-                  "tpl": "骨科是我院的优势学科，拥有一支技术过硬的专家团队，配备数字化X光机、骨密度检测仪等先进设备，擅长诊治骨折、关节炎、腰椎间盘突出等疾病。我们融合中医正骨、针灸与西医微创技术，为患者提供个性化治疗方案，助力快速康复",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:17cd2cd517a5"
-                }
-              ],
-              "id": "u:db559a8fcd41"
-            },
-            {
-              "type": "card",
-              "id": "u:db559a8fcd41",
-              "href": "https://github.com/baidu/amis",
-              "header": {
-                "title": "",
-                "subTitle": "",
-                "description": "",
-                "avatarText": "中医"
-              },
-              "body": [
-                {
-                  "type": "tpl",
-                  "tpl": "中医科传承经典，擅长运用中药、推拿、艾灸等传统疗法，治疗风湿疼痛、失眠、消化不良等疾病，强调“治未病”，从根本改善体质",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:17cd2cd517a5"
-                }
-              ]
-            },
-            {
-              "type": "card",
-              "id": "u:db559a8fcd41",
-              "href": "https://github.com/baidu/amis",
-              "header": {
-                "title": "",
-                "subTitle": "",
-                "description": "",
-                "avatarText": "内科"
-              },
-              "body": [
-                {
-                  "type": "tpl",
-                  "tpl": "内科团队经验丰富，擅长高血压、糖尿病、心血管疾病等常见病的诊治，注重个体化管理，帮助患者控制病情、提升生活质量。",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:17cd2cd517a5"
-                }
-              ]
-            },
-            {
-              "type": "card",
-              "id": "u:db559a8fcd41",
-              "href": "https://github.com/baidu/amis",
-              "header": {
-                "title": "",
-                "subTitle": "",
-                "description": "",
-                "avatarText": "康复"
-              },
-              "body": [
-                {
-                  "type": "tpl",
-                  "tpl": "康复治疗科为术后患者、中风后遗症患者及慢性疼痛患者提供专业康复训练，结合中医理疗与西医康复技术，助力功能恢复",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:17cd2cd517a5"
-                }
-              ]
-            },
-            {
-              "type": "card",
-              "id": "u:db559a8fcd41",
-              "href": "https://github.com/baidu/amis",
-              "header": {
-                "title": "",
-                "subTitle": "",
-                "description": "",
-                "avatarText": "检验"
-              },
-              "body": [
-                {
-                  "type": "tpl",
-                  "tpl": "医学检验科提供精准的血液、尿液等检测服务；常规类：ABO血型+RH、C反应蛋白、血细分析（五分类法）、尿液分析、大便常规。生化类：肾功三项、肝功能、血脂六项、心肌酶谱、空腹血糖、电解质四项、心肌标志物三项",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:17cd2cd517a5"
-                }
-              ]
-            },
-            {
-              "type": "card",
-              "id": "u:db559a8fcd41",
-              "href": "https://github.com/baidu/amis",
-              "header": {
-                "title": "",
-                "subTitle": "",
-                "description": "",
-                "avatarText": "影像"
-              },
-              "body": [
-                {
-                  "type": "tpl",
-                  "tpl": "医学影像科配备X光、彩超等设备，确保诊断高效准确，为临床提供坚实支持",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:17cd2cd517a5"
-                }
-              ]
-            },
-            {
-              "type": "card",
-              "id": "u:db559a8fcd41",
-              "href": "https://github.com/baidu/amis",
-              "header": {
-                "title": "",
-                "subTitle": "",
-                "description": "",
-                "avatarText": "肛肠"
-              },
-              "body": [
-                {
-                  "type": "tpl",
-                  "tpl": "肛肠专科是我院特色科室，针对痔疮、肛瘘、便秘等疾病提供专业治疗。独特的肠胃镜技术是我们的一大亮点，采用先进的无痛肠胃镜设备，检查过程舒适快捷，诊断精准无误，特别适合胃肠道疾病的早期筛查与治疗，深受患者好评",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:17cd2cd517a5"
-                }
-              ]
-            },
-            {
-              "type": "tpl",
-              "id": "u:8b9594dd1309",
-              "tpl": "<span style='font-size:25px'>就医优势</span>"
-            },
-            {
-              "type": "tpl",
-              "id": "u:19a17dee7aa4",
-              "tpl": "<h3><strong>门诊费用报销便</strong></h3>\n  <p>作为一级医院，我们全面支持医保报销，包括城镇职工医保和城乡居民医保，患者可享受大幅费用减免。同时，我们与商业保险公司合作，提供直赔服务，让您就医无后顾之忧，费用透明、经济实惠。</p>\n  <ol>\n    <li>报销比例高：通常情况下，一级医院的报销比例相对较高。以职工医保为例，在一些地区，一级医院住院费用的报销比例可能高达 80% - 90%甚至更高，而二级医院和三级医院的报销比例会逐级降低。</li>\n    <li>起付线低，一级医院的起付线一般低于二级和三级医院。这意味着患者在一级医院就医时，更容易达到起付线标准，从而开始享受医保报销。</li>\n    <li>费用相对较低，一级医院多为社区医院、乡镇卫生院等基层医疗机构，其医疗服务价格通常相对较低。再加上报销比例高，患者自付的费用会更少，经济负担相对较轻。</li>\n  </ol>\n  <h3><strong>停车方便，环境舒适</strong></h3>\n  <p>医院设有宽敞的停车场，患者及家属无需为停车发愁，就医更加从容。院内环境整洁优雅，候诊区宽敞舒适，处处体现人性化关怀</p>\n  <h3><strong>医护热心，服务一视同仁</strong></h3>\n  <p>我们的医护人员以热情和耐心著称，无论患者身份背景如何，都能感受到平等对待和真诚关怀。问诊细致、解释清晰，确保每位患者安心就医</p>\n  <h3><strong>人少快诊，流程便捷</strong></h3>\n  <p>相较于大型医院，崇仁中西医结合医院就诊人数相对较少，排队时间短，就医流程简化高效。患者从挂号到诊疗都能快速完成，无需长时间等待，真正做到“早诊早治”。</p>\n  <h3><strong>服务承诺，健康触手可及</strong></h3>\n  <p>在崇仁中西医结合医院，我们提供24小时急诊服务、预约挂号、健康咨询等一站式便捷服务。无论是骨科急症还是肠胃不适，我们都能迅速响应。医院还配备现代化病房和康复设施，确保住院患者得到全方位照护。\n    崇仁中西医结合医院，您身边的健康港湾。我们以专业的医疗技术、贴心的服务态度和便捷的就医体验，致力于守护每一位患者的健康。</p>\n",
-              "language": "javascript"
-            },
-            {
-              "type": "tpl",
-              "id": "u:d463f536b37c",
-              "tpl": "<span style='font-size:25px'>名医列表</span>"
-            },
-            {
-              "type": "card",
-              "header": {
-                "title": "<b>周华明  【<span style='color:red'>普外科</span>】</b>",
-                "subTitle": "",
-                "description": "",
-                "avatarText": "头像",
-                "avatar": "https://static5.bohe.cn/common/images/default_doctor.png"
-              },
-              "body": [
-                {
-                  "type": "tpl",
-                  "tpl": "擅长：擅长腹腔镜微创治疗、普外科疾病、经皮肾镜及经尿道软镜治疗、泌尿外科疾病和肛肠疾病等。",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:bc1b9971e39b"
-                }
-              ],
-              "id": "u:4ef16378b3f8",
-              "toolbar": [
-                {
-                  "type": "tpl",
-                  "tpl": "主治医师｜置顶",
-                  "className": "label label-warning",
-                  "id": "u:c97866db6807"
-                }
-              ]
-            },
-            {
-              "type": "card",
-              "header": {
-                "title": "<b>黄福瑞  【<span style='color:red'>骨外科</span>】</b>",
-                "subTitle": "",
-                "description": "",
-                "avatarText": "头像",
-                "avatar": "https://static5.bohe.cn/common/images/default_doctor.png"
-              },
-              "body": [
-                {
-                  "type": "tpl",
-                  "tpl": "擅长脊柱、骨盆、胸部、四肢关节骨折脱位、腰椎间盘突出和骨病，以及颈、肩、臂、腰、腿、足跟部及各关节疼痛。",
-                  "wrapperComponent": "",
-                  "inline": false,
-                  "id": "u:bc1b9971e39b"
-                }
-              ],
-              "id": "u:4ef16378b3f8",
-              "toolbar": [
-                {
-                  "type": "tpl",
-                  "tpl": "主治医师｜置顶",
-                  "className": "label label-warning",
-                  "id": "u:c97866db6807"
-                }
-              ]
+              "tpl": "咨询：13755969395 周院长",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:89f31c705923"
             }
           ],
-          "id": "u:73ce3ce2f775",
-          "asideResizor": false,
-          "pullRefresh": {
-            "disabled": true
+          "toolbar": [],
+          "id": "u:8d62cd7ff5cd"
+        },
+        {
+          "type": "grid-nav",
+          "source": "${items}",
+          "border": false,
+          "id": "u:3daaee2b93a2"
+        },
+        {
+          "type": "tpl",
+          "id": "u:19a17dee7aa4",
+          "tpl": "<p><strong>◎ 简介&nbsp;</strong><br>为响应国家推动医养结合高质量发展的号召，更好的满足院内患者的就医需求。崇仁县中西医结合医院是经崇仁县卫健委批准，在崇仁县县卫健委备案。 崇仁中西医结合医院是一家以中西医结合为核心特色的一级综合医院，致力于为患者提供高效、便捷、温馨的医疗服务。我们秉持&ldquo;患者至上，医术精湛&rdquo;的理念，将传统中医的智慧与现代医学技术相结合，打造区域内独具特色的健康管理中心。这里不仅有先进的诊疗设备和专业团队，还有贴心的服务和便捷的就医体验，真正让每一位患者感受到关怀与尊重。我院特别引进先进的康复理念，结合国内专业的康复技术及设备，打通&ldquo;医、康、养、护&rdquo;四个领域，院内开设骨科、中西医结合科、中医科、康复治疗科、肛肠专科、医学检验科、医学影像科等医技科室</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>"
+        },
+        {
+          "type": "tpl",
+          "id": "u:3173b85c721d",
+          "tpl": "<span style='font-size:25px'>科室列表</span>"
+        },
+        {
+          "type": "card",
+
+          "header": {
+            "title": "",
+            "subTitle": "",
+            "description": "",
+            "avatarText": "骨科"
           },
-          "regions": [
-            "body"
+          "body": [
+            {
+              "type": "tpl",
+              "tpl": "骨科是我院的优势学科，拥有一支技术过硬的专家团队，配备数字化X光机、骨密度检测仪等先进设备，擅长诊治骨折、关节炎、腰椎间盘突出等疾病。我们融合中医正骨、针灸与西医微创技术，为患者提供个性化治疗方案，助力快速康复",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:17cd2cd517a5"
+            }
           ],
-          "data": {
-            "items": [
-              {
-                "icon": "https://aisuda-public-images.bj.bcebos.com/amis/icon-1.png",
-                "text": "人才招聘",
-                "link": "https://www.kq36.cn/crxrhyyyxg/main.asp",
-                "blank": true
-              },
-              {
-                "icon": "https://aisuda-public-images.bj.bcebos.com/amis/icon-2.png",
-                "text": "地图导航",
-                "clickAction": {
-                  "actionType": "dialog",
-                  "dialog": {
-                    "title": "弹框",
-                    "body": "这是个简单的弹框。"
-                  }
-                }
-              },
-              {
-                "icon": "https://aisuda-public-images.bj.bcebos.com/amis/icon-3.png",
-                "text": "公告动态",
-                "link": "/docs/index"
-              },
-              {
-                "icon": "https://aisuda-public-images.bj.bcebos.com/amis/icon-4.png",
-                "text": "联系我们"
-              }
-            ]
-          }
-        };
-        let amisScoped = amis.embed(
-          "#root",
-          amisJSON,
-          {}, //这个空对象可以放固定数据如 data:{imgIp:""}
+          "id": "u:db559a8fcd41"
+        },
+        {
+          "type": "card",
+          "id": "u:db559a8fcd41",
+
+          "header": {
+            "title": "",
+            "subTitle": "",
+            "description": "",
+            "avatarText": "中医"
+          },
+          "body": [
+            {
+              "type": "tpl",
+              "tpl": "中医科传承经典，擅长运用中药、推拿、艾灸等传统疗法，治疗风湿疼痛、失眠、消化不良等疾病，强调“治未病”，从根本改善体质",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:17cd2cd517a5"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "id": "u:db559a8fcd41",
+
+          "header": {
+            "title": "",
+            "subTitle": "",
+            "description": "",
+            "avatarText": "内科"
+          },
+          "body": [
+            {
+              "type": "tpl",
+              "tpl": "内科团队经验丰富，擅长高血压、糖尿病、心血管疾病等常见病的诊治，注重个体化管理，帮助患者控制病情、提升生活质量。",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:17cd2cd517a5"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "id": "u:db559a8fcd41",
+
+          "header": {
+            "title": "",
+            "subTitle": "",
+            "description": "",
+            "avatarText": "康复"
+          },
+          "body": [
+            {
+              "type": "tpl",
+              "tpl": "康复治疗科为术后患者、中风后遗症患者及慢性疼痛患者提供专业康复训练，结合中医理疗与西医康复技术，助力功能恢复",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:17cd2cd517a5"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "id": "u:db559a8fcd41",
+
+          "header": {
+            "title": "",
+            "subTitle": "",
+            "description": "",
+            "avatarText": "检验"
+          },
+          "body": [
+            {
+              "type": "tpl",
+              "tpl": "医学检验科提供精准的血液、尿液等检测服务；常规类：ABO血型+RH、C反应蛋白、血细分析（五分类法）、尿液分析、大便常规。生化类：肾功三项、肝功能、血脂六项、心肌酶谱、空腹血糖、电解质四项、心肌标志物三项",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:17cd2cd517a5"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "id": "u:db559a8fcd41",
+
+          "header": {
+            "title": "",
+            "subTitle": "",
+            "description": "",
+            "avatarText": "影像"
+          },
+          "body": [
+            {
+              "type": "tpl",
+              "tpl": "医学影像科配备X光、彩超等设备，确保诊断高效准确，为临床提供坚实支持",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:17cd2cd517a5"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "id": "u:db559a8fcd41",
+
+          "header": {
+            "title": "",
+            "subTitle": "",
+            "description": "",
+            "avatarText": "肛肠"
+          },
+          "body": [
+            {
+              "type": "tpl",
+              "tpl": "肛肠专科是我院特色科室，针对痔疮、肛瘘、便秘等疾病提供专业治疗。独特的肠胃镜技术是我们的一大亮点，采用先进的无痛肠胃镜设备，检查过程舒适快捷，诊断精准无误，特别适合胃肠道疾病的早期筛查与治疗，深受患者好评",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:17cd2cd517a5"
+            }
+          ]
+        },
+        {
+          "type": "tpl",
+          "id": "u:8b9594dd1309",
+          "tpl": "<span style='font-size:25px'>就医优势</span>"
+        },
+        {
+          "type": "tpl",
+          "id": "u:19a17dee7aa4",
+          "tpl": "<h3><strong>门诊费用报销便利</strong></h3>\n  <p>作为一级医院，我们全面支持医保报销，包括城镇职工医保和城乡居民医保，患者可享受大幅费用减免。同时，我们与商业保险公司合作，提供直赔服务，让您就医无后顾之忧，费用透明、经济实惠。</p>\n  <ol>\n    <li>报销比例高：通常情况下，一级医院的报销比例相对较高。以职工医保为例，在一些地区，一级医院住院费用的报销比例可能高达 80% - 90%甚至更高，而二级医院和三级医院的报销比例会逐级降低。</li>\n    <li>起付线低，一级医院的起付线一般低于二级和三级医院。这意味着患者在一级医院就医时，更容易达到起付线标准，从而开始享受医保报销。</li>\n    <li>费用相对较低，一级医院多为社区医院、乡镇卫生院等基层医疗机构，其医疗服务价格通常相对较低。再加上报销比例高，患者自付的费用会更少，经济负担相对较轻。</li>\n  </ol>\n  <h3><strong>停车方便，环境舒适</strong></h3>\n  <p>医院设有宽敞的停车场，患者及家属无需为停车发愁，就医更加从容。院内环境整洁优雅，候诊区宽敞舒适，处处体现人性化关怀</p>\n  <h3><strong>医护热心，服务一视同仁</strong></h3>\n  <p>我们的医护人员以热情和耐心著称，无论患者身份背景如何，都能感受到平等对待和真诚关怀。问诊细致、解释清晰，确保每位患者安心就医</p>\n  <h3><strong>人少快诊，流程便捷</strong></h3>\n  <p>相较于大型医院，崇仁中西医结合医院就诊人数相对较少，排队时间短，就医流程简化高效。患者从挂号到诊疗都能快速完成，无需长时间等待，真正做到“早诊早治”。</p>\n  <h3><strong>服务承诺，健康触手可及</strong></h3>\n  <p>在崇仁中西医结合医院，我们提供24小时急诊服务、预约挂号、健康咨询等一站式便捷服务。无论是骨科急症还是肠胃不适，我们都能迅速响应。医院还配备现代化病房和康复设施，确保住院患者得到全方位照护。\n    崇仁中西医结合医院，您身边的健康港湾。我们以专业的医疗技术、贴心的服务态度和便捷的就医体验，致力于守护每一位患者的健康。</p>\n",
+          "language": "javascript"
+        },
+        {
+          "type": "tpl",
+          "id": "u:d463f536b37c",
+          "tpl": "<span style='font-size:25px'>名医列表</span>"
+        },
+        {
+          "type": "card",
+          "header": {
+            "title": "<b>周华明  【<span style='color:red'>普外科</span>】</b>",
+            "subTitle": "",
+            "description": "",
+            "avatarText": "头像",
+            "avatar": "https://static5.bohe.cn/common/images/default_doctor.png"
+          },
+          "body": [
+            {
+              "type": "tpl",
+              "tpl": "擅长：擅长腹腔镜微创治疗、普外科疾病、经皮肾镜及经尿道软镜治疗、泌尿外科疾病和肛肠疾病等。",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:bc1b9971e39b"
+            }
+          ],
+          "id": "u:4ef16378b3f8",
+          "toolbar": [
+            {
+              "type": "tpl",
+              "tpl": "主治医师｜置顶",
+              "className": "label label-warning",
+              "id": "u:c97866db6807"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "header": {
+            "title": "<b>黄福瑞  【<span style='color:red'>骨外科</span>】</b>",
+            "subTitle": "",
+            "description": "",
+            "avatarText": "头像",
+            "avatar": "https://static5.bohe.cn/common/images/default_doctor.png"
+          },
+          "body": [
+            {
+              "type": "tpl",
+              "tpl": "擅长脊柱、骨盆、胸部、四肢关节骨折脱位、腰椎间盘突出和骨病，以及颈、肩、臂、腰、腿、足跟部及各关节疼痛。",
+              "wrapperComponent": "",
+              "inline": false,
+              "id": "u:bc1b9971e39b"
+            }
+          ],
+          "id": "u:4ef16378b3f8",
+          "toolbar": [
+            {
+              "type": "tpl",
+              "tpl": "主治医师｜置顶",
+              "className": "label label-warning",
+              "id": "u:c97866db6807"
+            }
+          ]
+        }
+      ],
+      "id": "u:73ce3ce2f775",
+      "asideResizor": false,
+      "pullRefresh": {
+        "disabled": true
+      },
+      "regions": [
+        "body"
+      ],
+      "data": {
+
+        "image": "./zhm.png",
+        "items": [
           {
-            fetcher: function (config) {
-              let result = axios_http2(config);
-              return result;
-            },
+            "icon": "./doctor.png",
+            "text": "名医坐诊",
+
+            "clickAction": {
+              "actionType": "dialog",
+
+              "dialog": {
+                "title": {
+                  "type":"tpl",
+                  "tpl":"<h3>专家介绍</h3>"
+                },
+                "actions":[],
+                "body": [
+                  {
+                    "type": "static-image",
+                    "imageMode": "original",
+                    "src": "./zxj.png",
+                    "label": "",
+                    "thumbMode": "cover"
+                  },
+                  {
+                    "type":"tpl",
+                    "tpl":"<section data-role=\"paragraph\" data-width=\"95%\" style=\"width: 95%;flex: 0 0 95%;border-style: dashed;border-width: 1px;border-color: rgb(221, 221, 221);border-radius: 0px;margin-right: auto;margin-left: auto;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;max-width: 95% !important;\" draggable=\"true\"><section data-tools=\"135编辑器\" data-id=\"107072\" data-width=\"100%\" style=\"width: 100%;flex: 0 0 100%;margin-left: auto;margin-right: auto;\"><section style=\"margin: 10px auto;text-align: center;\"><section style=\"padding-right: 10px;padding-left: 10px;\"><section style=\"display: flex;justify-content: space-between;align-items: center;\"><section style=\"width: 50%;max-width: 50% !important;\" data-width=\"50%\"><section style=\"text-align: left;\"><section style=\"display:inline-block;\"><section style=\"font-size: 16px;letter-spacing: 1.5px;color: rgb(138, 110, 107);padding-right: 5px;padding-left: 5px;\"><span style=\"color:#757576;\"><strong data-brushtype=\"text\">周小江</strong></span></section><section style=\"width: 100%;height: 7px;background-color: rgb(255, 231, 229);margin-top: -5px;overflow: hidden;\" data-width=\"100%\"><br></section></section></section><section data-autoskip=\"1\" style=\"padding-top: 10px;text-align: justify;line-height: 1.75em;letter-spacing: 1.5px;font-size: 14px;color: rgb(138, 110, 107);background-image: initial;background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;\"><ul class=\"list-paddingleft-1\" style=\"list-style-position: outside;padding-left: 30px;\"><li><p style=\"text-align:justify;line-height: 1.75em;\"><span style=\"font-size: 12px;line-height: 2em;color: rgb(117, 117, 118);\">南大一附院消化内科副主任</span></p></li><li><p style=\"text-align:justify;line-height: 1.75em;\"><span style=\"font-size: 12px;line-height: 2em;color: rgb(117, 117, 118);\">主任医师</span></p></li><li><p style=\"text-align:justify;line-height: 1.75em;\"><span style=\"font-size: 12px;line-height: 2em;color: rgb(117, 117, 118);\">副教授</span></p></li><li><p style=\"text-align:justify;line-height: 1.75em;\"><span style=\"font-size: 12px;line-height: 2em;color: rgb(117, 117, 118);\">博士生导师</span></p></li><li><p style=\"text-align:justify;line-height: 1.75em;\"><span style=\"font-size: 12px;line-height: 2em;color: rgb(117, 117, 118);\">中国医师协会培训学院导师</span></p></li><li><p style=\"text-align:justify;line-height: 1.75em;\"><span style=\"font-size: 12px;line-height: 2em;color: rgb(117, 117, 118);\">中国医师协会胰腺病专科医师</span></p></li></ul></section></section><section style=\"width: 40%;max-width: 40% !important;\" data-width=\"40%\"><section style=\"width: 100%;\" data-width=\"100%\"><section data-tools=\"135编辑器\" data-id=\"126156\"><section style=\"margin: 10px auto;\"><section style=\"width: 100%;\" data-width=\"100%\"></section></section></section></section></section></section></section></section></section><p style=\"text-align:justify;margin-left: 10px;\"><span style=\"font-size: 12px;caret-color: rgb(255, 0, 0);color: rgb(117, 117, 118);font-family: 微软雅黑, sans-serif;\">擅长消化科疑难病、危重病的诊治，消化内镜的各项操作（如ERCP、ESD、POEM、STER、超声胃镜、胃肠道支架置入、胃肠息肉内镜下切除等），尤其擅长胆胰疾病、消化道早癌及粘膜下病变剥离术等内镜操作。</span></p></section>"
+                  }
+                ]
+              }
+            }
+          },
+
+          {
+            "icon": "./map.png",
+            "text": "地图展示",
+            "clickAction": {
+              "actionType": "dialog",
+
+              "dialog": {
+                "title": {
+                  "type":"tpl",
+                  "tpl":"<h3>百度地图</h3>"
+                },
+                "actions":[],
+                "body": [
+                  {
+                    "type": "location-picker",
+                    "name": "location",
+                    "ak": "LiZT5dVbGTsPI91tFGcOlSpe5FDehpf7",
+                    "label": "",
+                    "value": {
+                      "address": "",
+                      "lat": 27.775455560743872,
+                      "lng": 116.10130695768358,
+                      "zoom": 18,
+                      "city": "抚州市",
+                      "vendor": "baidu"
+                    },
+                    "static": true,
+                    "staticSchema": {
+                      "embed": true,
+                      "showAddress": true
+                    }
+                  }
+
+                ]
+              }
+            }
+          },
+          {
+            "icon": "./zp.png",
+            "text": "人才招聘",
+            "link": "https://www.kq36.cn/crxrhyyyxg/main.asp",
+            "blank": true
+          },
+          {
+            "icon": "./wx.png",
+
+            "text": "联系我们",
+            "clickAction": {
+              "actionType": "dialog",
+              "dialog": {
+                "title": "微信",
+                "body": {
+                  "type": "static-image",
+                  "imageMode": "original",
+                  "name": "image",
+                  "label": "",
+                  "thumbMode": "cover"
+                }
+              }
+            }
           }
-        );
-      })();
-    </script>
-  </body>
+        ]
+      }
+    };
+    let amisScoped = amis.embed(
+      "#root",
+      amisJSON,
+      {}, //这个空对象可以放固定数据如 data:{imgIp:""}
+      {
+        fetcher: function (config) {
+          let result = axios_http2(config);
+          return result;
+        },
+      }
+    );
+  })();
+</script>
+</body>
 </html>
